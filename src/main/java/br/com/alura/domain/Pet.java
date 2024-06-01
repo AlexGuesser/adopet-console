@@ -1,0 +1,77 @@
+package br.com.alura.domain;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Pet {
+
+    private long id;
+    @JsonProperty("tipoPet")
+    private String tipo;
+    private String nome;
+    private String raca;
+    private int idade;
+    private String cor;
+    private Float peso;
+
+    // Default constructor is required by Jackson
+    private Pet() {
+    }
+
+    public Pet(long id, String tipo, String nome, String raca, int idade, String cor, Float peso) {
+        this(tipo, nome, raca, idade, cor, peso);
+        this.id = id;
+    }
+
+
+    public Pet(String tipo, String nome, String raca, int idade, String cor, Float peso) {
+        this.tipo = tipo;
+        this.nome = nome;
+        this.raca = raca;
+        this.idade = idade;
+        this.cor = cor;
+        this.peso = peso;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public Float getPeso() {
+        return peso;
+    }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", nome='" + nome + '\'' +
+                ", raca='" + raca + '\'' +
+                ", idade=" + idade +
+                ", cor='" + cor + '\'' +
+                ", peso=" + peso +
+                '}';
+    }
+}
